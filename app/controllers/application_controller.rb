@@ -5,7 +5,6 @@ class ApplicationController < ActionController::Base
 
   def current_user
     User.find(session[:user_id]) if session[:user_id] ###check to see if vice versa order works###
-    @running = Emoji.find_by_alias("notes").raw
   end
 
   def emoji

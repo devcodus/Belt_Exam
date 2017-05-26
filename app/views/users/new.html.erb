@@ -6,7 +6,7 @@
   <input type="text" name="register[first_name]" placeholder="First Name"><br>
   <input type="text" name="register[last_name]" placeholder="Last Name"><br>
   <input type="text" name="register[email]" placeholder="Email"><br>
-  <input type="text" name="register[password]" placeholder="Password"><br>
+  <input type="password" name="register[password]" placeholder="Password"><br>
   <input type="submit" name="" value="Register"><br>
 </form>
 <hr>
@@ -14,6 +14,6 @@
 <form class="" action="/sessions" method="post">
   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
   <input type="text" name="email" placeholder="Email"><br>
-  <input type="text" name="password" placeholder="Password"><br>
+  <input type="password" name="password" placeholder="Password"><br>
   <input type="submit" name="" value="Login">
 </form>

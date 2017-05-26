@@ -12,7 +12,9 @@ Rails.application.routes.draw do
   post 'sessions' => 'sessions#create'
   delete 'sessions' => 'sessions#destroy'
 
+
   get 'users/new'
+  post 'users' => 'users#create'
 
   get 'users/edit' => 'users#edit'
 

@@ -7,8 +7,7 @@
   <% @user.songs.distinct.each do |s| %>
   <tr>
     <td><%= s.artist %></td><td><%= s.title %></a></td>
-    <td><%= @count = Hit.where(song_id:s.id).count(:user_id) %></td>
-
+    <td><%= @count = Hit.where("user_id = ? AND song_id = ?", session[:user_id], s.id).count(:song_id) %></td>
   </tr>
   <% end %>
 </table>

@@ -13,8 +13,11 @@ class SongsController < ApplicationController
   end
 
   def create
-    Song.create(title:params[:title], artist:params[:artist])
+    if params[:title] && params[:artist]
+      song = Song.create(title:params[:title], artist:params[:artist])
+      Hit.create(user_id:session[:user_id], song_id:song.id)
     redirect_to :back
+    end
   end
 
   def show

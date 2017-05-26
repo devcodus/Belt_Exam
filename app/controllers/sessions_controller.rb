@@ -7,8 +7,8 @@ class SessionsController < ApplicationController
     @user = User.find_by_email(params[:email])
 
     if !@user
-      flash[:errors] = ["Invalid Email of Password"]
-      redirect_to '/users/new' and return
+      flash[:errors] = ["Invalid Email or Password"]
+      redirect_to '/' and return
     end
 
     if @user.authenticate(params[:password])
@@ -17,13 +17,13 @@ class SessionsController < ApplicationController
     end
 
     flash[:errors] = ["Invalid Email of Password"]
-    redirect_to '/users/new' and return
+    redirect_to '/' and return
 
   end
 
   def destroy
-    reset_session ## OR ##
-    # session[:user_id] = nil
+    # reset_session ## OR ##
+    session[:user_id] = nil
     redirect_to '/'
   end
 

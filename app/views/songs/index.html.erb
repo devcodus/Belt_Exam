@@ -1,6 +1,6 @@
 <h1>Hello, <%= @user.first_name %></h1>
 <hr>
-<h2>All Songs <%= @notes%></h2>
+<h2>All Songs <%= @notes %></h2>
 <hr>
 <table border="1" cellpadding="10" >
   <tr>
@@ -19,9 +19,20 @@
   <% end %>
 </table>
 <hr>
+
 <form class="" action="/songs" method="post">
   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
   <input type="text" name="artist" placeholder="Artist"><br>
   <input type="text" name="title" placeholder="Title"><br>
   <input type="submit" name="" value="Add Song">
 </form>
+<% if flash[:errors] %>
+  <% flash[:errors].each do |e| %>
+  <ul>
+    <li>
+      <%= e %>
+    </li>
+  </ul>
+
+  <% end %>
+<% end %>

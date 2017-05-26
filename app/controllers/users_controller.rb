@@ -9,7 +9,7 @@ class UsersController < ApplicationController
     if @user.save && params[:password] == params[:password_confirmation]
       @user.save ##don't need the rest?:> .authorize(password)
       session[:user_id] = @user.id
-      redirect_to '/'
+      redirect_to '/songs/index'
     else
       flash[:errors] = @user.errors.full_messages
       redirect_to :back
@@ -19,7 +19,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @songs = Song.find(params[:id])
+    
   end
 
   def edit
