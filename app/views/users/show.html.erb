@@ -1,0 +1,15 @@
+<h3><%= @user.first_name %>'s Playlist</h3>
+<hr>
+<table border="1" cellpadding="10" >
+  <tr>
+    <td>Artist</td><td>Title</td><td># of times Added</td>
+  </tr>
+  <% @user.songs.distinct.each do |s| %>
+  <tr>
+    <td><%= s.artist %></td><td><%= s.title %></a></td>
+    <td><%= @count = Hit.where(song_id:s.id).count(:user_id) %></td>
+
+  </tr>
+  <% end %>
+</table>
+<hr>

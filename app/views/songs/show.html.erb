@@ -1,0 +1,16 @@
+<h1><%= @song.title %></h1>
+<hr>
+<p>Others whomst have added <%= @song.title %>:</p>
+<table border="1" cellpadding="10" >
+  <tr>
+    <td>Name</td><td>Times Added</td>
+  </tr>
+
+  <% @song.hits.select(:user_id).distinct.each do |h| %>
+  <tr>
+    <td><a href="/users/<%= h.user_id %>"><%= h.user.first_name %> <%= h.user.last_name %></a></td><td><%= @count = Hit.where(song_id:@song.id).count(:user_id) %></td>
+  </tr>
+  <% end %>
+
+</table>
+<hr>
